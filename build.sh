@@ -3,6 +3,14 @@ set -e
 BUILD_DIR="build"
 BUILD_BIN="tinyraycaster"
 
+# If the build already exists, then run it. If the exit code is non-0, the
+# script will terminate and bubble the exit code up (See 'set -e')
+# We terminate the script with exit 0, when the app closes normally
+if [ -f "${BUILD_DIR}/${BUILD_BIN}" ]; then
+  "./${BUILD_DIR}/${BUILD_BIN}"
+  exit 0
+fi
+
 # Take care of dependencies
 if [ "$(uname)" == "Darwin" ]; then
   if brew help >/dev/null && ! brew list sdl2 >/dev/null 2>&1 ; then
