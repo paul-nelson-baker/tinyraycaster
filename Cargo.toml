@@ -5,3 +5,4 @@ authors = ["Paul N. Baker <paul.nelson.baker@gmail.com>"]
 edition = "2018"
 
 [dependencies]
+sdl2 = "0.32.1"
