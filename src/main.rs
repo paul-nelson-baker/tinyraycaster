@@ -4,6 +4,7 @@ fn main() {
     let sdl = sdl2::init().unwrap();
     let video_subsystem = sdl.video().unwrap();
     let window = video_subsystem.window("", 1024, 512)
+        .position_centered()
         .build()
         .unwrap();
 
